@@ -5,29 +5,32 @@
 //greeting should return the string "Hello, "
 //plus the value of the name parameter.
 
-//Code here
-
+function greeting(name) {//Code Here
+  return "Hello, " + name;
+}
 
 //////////////////PROBLEM 2////////////////////
 
 //Rewrite the function greeting as a function expression.
 //Name it newGreeting.
 
-//Code Here
-
+let newGreeting = function(name) {//Code Here
+  return "Hello, " + name;
+}
 //////////////////PROBLEM 3////////////////////
 
 //Rewrite the function greeting as an arrow function.
 //Name it finalGreeting.
 
-//Code Here
-
+let finalGreeting = (name) => { 
+  return "Hello, " + name;//Code Here
+}
 //////////////////PROBLEM 4////////////////////
 
 //Create an array called groceries with the values
 //"apples", "milk", "eggs", "bread"
 
-//Code Here
+let groceries = ["apples", "milk", "eggs", "bread"];//Code Here
 
 //Write a function called doubleCheck that takes in an array
 //as a parameter.
@@ -35,7 +38,12 @@
 //If the array does not contain "chocolate", add "chocolate".
 //doubleCheck should return the array.
 
-//Code Here
+function doubleCheck(groceries) {//Code Here
+  if (groceries.indexOf("chocolate") === -1) {
+    groceries.push("chocolate");
+    return groceries;
+  }
+}
 
 //////////////////PROBLEM 5////////////////////
 
@@ -44,12 +52,20 @@
 //name (a string), color: (a string), age (a number),
 //and goodBoy (a boolean).
 
-//Code Here
+let dog = {
+  name: "Toto",
+  color: "Brown",
+  age: 5,
+  goodBoy: true,
+  bark: function(){
+    return "Woof woof";
+  }
+}//Code Here
 
 //...access the dog's name from the object and assign it to a
 //variable called devMountainClassPet.
 
-//Code Here
+let devMountainClassPet = dog.name;//Code Here
 
 //Add a method to dog called bark.
 //The value of bark should be a function that returns the string "Woof woof".
@@ -58,7 +74,7 @@
 
 //Store the result of invoking the bark method in a variable called ruff.
 
-//Code Here
+let ruff = dog.bark();//Code Here
 
 //////////////////PROBLEM 6////////////////////
 
@@ -71,7 +87,16 @@
 
 //Return mySum.
 
-//Code Here
+function looper(myArray) {
+  let mySum = 0;
+  for (let i = 0; i < myArray.length; i++) {
+    if(myArray[i] >= 100 || myArray[i] % 2 === 1) {
+      mySum = myArray[i] + mySum;
+    }
+  }
+return mySum;
+}
+  //Code Here
 
 //////////////////PROBLEM 7////////////////////
 
@@ -84,12 +109,14 @@ function math(num1, num2, callback) {
 //Write a function called add that takes in two parameters and
 //returns the result of adding them together.
 
-//Code Here
+function add(num1, num2) {
+  return num1 + num2;
+}//Code Here
 
 //Now invoke math, passing in the numbers 3 and 4, and your add function,
 //storing the result in the variable mathSum.
 
-//Code Here
+let mathSum = math(3, 4, add)//Code Here
 
 //////////////////PROBLEM 8////////////////////
 
@@ -104,7 +131,12 @@ function sampleCallbackTwo() {
   return "I am also a callback function";
 }
 
-//Code Here
+function invoker(callback) {
+  return callback();
+}//Code Here
+
+
+
 
 //////////////////PROBLEM 9////////////////////
 
@@ -128,28 +160,30 @@ function pond() {
 //as strings.
 
 //This array should contain the variable names (as strings) accessible in the global scope.
-let globalScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let globalScope = ["duck"];
 
 //This array should contain the variable names (as strings) accessible in the bathroom function.
-let bathroomScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let bathroomScope = ["duck", "rubberDuck"];
 
 //This array should contain the variable names (as strings) accessible in the bathtub function.
-let bathtubScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let bathtubScope = ["duck", "sailorDuck", "rubberDuck"];
 
 //This array should contain the variable names (as strings) accessible in the pond function.
-let pondScope = ["duck", "sailorDuck", "rubberDuck", "realDuck"];
+let pondScope = ["duck", "realDuck"];
 
 //////////////////PROBLEM 10////////////////////
 
 //Create a function called outerFn which returns an anonymous
 //function which returns your name.
 
-//Code Here
+function outerFn() {
+  return () => "Bryan";
+}//Code Here
 
 //Now save the result of invoking outerFn into a variable called innerFn.
 
-//Code Here
+let innerFn = outerFn();//Code Here
 
 //Now invoke innerFn and save the result to a variable called finalResult.
 
-//Code Here
+let finalResult = innerFn();//Code Here
